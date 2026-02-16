@@ -1,0 +1,114 @@
+{
+  "name": "체스택 (Chesstack)",
+  "version": "0.1.0-alpha",
+  "description": "마인크래프트 데이터팩으로 구현된 체스 변형 게임",
+  "minecraft_version": "1.20+",
+  "pack_format": 15,
+  
+  "features": {
+    "implemented": [
+      "8x8 체스 보드 시스템",
+      "기물 시스템 (엔티티 기반)",
+      "스택 시스템 (스턴/이동)",
+      "턴 시스템",
+      "기본 UI/메뉴",
+      "승리 조건",
+      "초기 킹 배치"
+    ],
+    "partial": [
+      "이동 시스템 (기본 틀)",
+      "Chessembly 인터프리터 (기본 틀)",
+      "기물 배치 (UI만)"
+    ],
+    "planned": [
+      "완전한 이동 로직",
+      "Chessembly 파싱 및 실행",
+      "추가 기물 (15종)",
+      "프로모션 시스템",
+      "로얄 피스 계승/위장",
+      "게임 저장/불러오기"
+    ]
+  },
+  
+  "pieces": {
+    "basic": {
+      "pawn": {"score": 1, "move_stack": 5},
+      "knight": {"score": 3, "move_stack": 3},
+      "bishop": {"score": 3, "move_stack": 3},
+      "rook": {"score": 5, "move_stack": 3},
+      "queen": {"score": 9, "move_stack": 1},
+      "king": {"score": 4, "move_stack": 3}
+    },
+    "advanced": {
+      "amazon": {"score": 13, "move_stack": 1},
+      "grasshopper": {"score": 4, "move_stack": 3},
+      "nightrider": {"score": 7, "move_stack": 2},
+      "archbishop": {"score": 6, "move_stack": 2},
+      "dabbaba": {"score": 2, "move_stack": 5},
+      "alfil": {"score": 2, "move_stack": 5},
+      "fers": {"score": 1, "move_stack": 5},
+      "centaur": {"score": 5, "move_stack": 3},
+      "camel": {"score": 3, "move_stack": 3},
+      "tempest_rook": {"score": 7, "move_stack": 2}
+    }
+  },
+  
+  "rules": {
+    "pocket_limit": 39,
+    "win_condition": "상대의 로얄 피스 제거",
+    "turn_actions": [
+      "착수 (placement)",
+      "이동 (movement)",
+      "계승 (succession)",
+      "위장 (disguise)",
+      "스턴 (stun)"
+    ],
+    "stacks": {
+      "stun": {
+        "description": "기물 착수 시 기물 점수만큼 부여, 매 턴 1 감소",
+        "effect": "1 이상이면 이동 불가"
+      },
+      "move": {
+        "description": "턴 시작 시 갱신, 이동 시 1 감소",
+        "values": {
+          "1-2점": 5,
+          "3-5점": 3,
+          "6-7점": 2,
+          "8점+": 1
+        }
+      }
+    }
+  },
+  
+  "commands": {
+    "start": "/function chess:start",
+    "menu": "/function chess:menu",
+    "actions": "/function chess:action/menu",
+    "reset": "/function chess:reset",
+    "end_turn": "/function chess:turn/end"
+  },
+  
+  "file_structure": {
+    "data/chess/function/": {
+      "board/": "보드 시스템",
+      "piece/": "기물 시스템",
+      "turn/": "턴 관리",
+      "movement/": "이동 시스템",
+      "action/": "플레이어 행동",
+      "game/": "게임 관리",
+      "ui/": "사용자 인터페이스",
+      "chessembly/": "Chessembly 인터프리터"
+    },
+    "docs/": {
+      "chesstack/": "체스택 규칙",
+      "chessembly/": "Chessembly 언어 명세"
+    }
+  },
+  
+  "dependencies": [],
+  "tested_versions": ["1.20.1", "1.20.4"],
+  
+  "authors": ["체스택 개발팀"],
+  "license": "MIT",
+  "repository": "로컬 개발 중"
+}
