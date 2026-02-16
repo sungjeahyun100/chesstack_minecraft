@@ -1,5 +1,45 @@
 # 체스택 개발 로그
 
+## 2026-02-16: 기물 착수 시스템 완성
+
+### 새로운 기능
+1. **기물 배치 시스템**
+   - 포켓에서 기물을 선택하여 보드에 배치
+   - 레이캐스트 기반 칸 감지 시스템
+   - carrot_on_a_stick을 우클릭하여 배치
+   - 스니크를 하면 배치 취소
+
+2. **배치 규칙**
+   - 백 플레이어: 1-4랭크에만 배치 가능
+   - 흑 플레이어: 5-8랭크에만 배치 가능
+   - 빈 칸에만 배치 가능
+   - 포켓 점수 차감 (폰 1점, 나이트/비숍 3점, 룩 5점, 퀸 9점)
+
+3. **스턴 스택 시스템**
+   - 배치 시 기물 점수만큼 스턴 스택 부여
+   - 폰: 1스택, 나이트/비숍: 3스택, 룩: 5스택, 퀸: 9스택
+
+4. **사용자 경험 개선**
+   - 배치 모드 진입 시 시각적 힌트 (end_rod 파티클)
+   - 배치 완료 시 사운드 및 파티클 효과
+   - 명확한 에러 메시지 (칸이 차 있음, 영역 제한, 포켓 부족)
+
+### 구현 파일
+- `piece/place/place_piece.mcfunction` - 핵심 배치 로직
+- `piece/place/spawn_*.mcfunction` - 각 기물별 생성 함수
+- `piece/place/select_*.mcfunction` - 기물 선택 함수
+- `piece/place/detect_square.mcfunction` - 칸 감지
+- `piece/place/raycast_step.mcfunction` - 레이캐스트
+- `piece/place/clear_placing_mode.mcfunction` - 배치 모드 종료
+- `piece/place/cancel.mcfunction` - 배치 취소
+
+### 기술적 세부사항
+- `chess.placing_cost` 스코어보드 추가
+- `chess.sneak` 스코어보드 추가 (배치 취소용)
+- `placing` 태그로 배치 모드 관리
+- 레이캐스트: 0.3블록 간격, 최대 15블록
+- 3x3 영역에서 가장 가까운 칸 감지
+
 ## 2026-02-16: 초기 구현
 
 ### 완료된 작업

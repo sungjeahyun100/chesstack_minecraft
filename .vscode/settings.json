@@ -1,0 +1,19 @@
+{
+  // mcfunction 파일 인식
+  "files.associations": {
+    "*.mcfunction": "mcfunction",
+    "*.mcmeta": "json"
+  },
+  
+  // 모든 진단(오류/경고) 끄기
+  "mcfunction.diagnostics": false,
+  
+  // 또는 특정 언어의 진단만 끄기
+  "[mcfunction]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    }
+  }
+}

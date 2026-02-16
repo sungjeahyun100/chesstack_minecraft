@@ -1,4 +1,10 @@
-# UI 클릭 처리 (임시)
+# UI 클릭 처리
 
-# 턴 종료 버튼 등 구현 예정
-tellraw @s ["",{"text":"클릭 감지됨","color":"yellow"}]
+# 배치 모드인 경우
+execute if entity @s[tag=placing] run function chess:piece/place/detect_square
+
+# 기물이 선택된 상태인 경우 (이동할 칸 클릭)
+execute if entity @e[tag=selected] run function chess:movement/detect_move_square
+
+# 기물 선택 (아직 선택된 기물이 없는 경우)
+execute unless entity @e[tag=selected] unless entity @s[tag=placing] run function chess:movement/detect_piece_click

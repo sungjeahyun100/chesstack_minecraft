@@ -13,6 +13,8 @@ scoreboard objectives add chess.score dummy "기물 점수"
 scoreboard objectives add chess.piece_score dummy "기물 점수표"
 scoreboard objectives add chess.pocket dummy "포켓 점수"
 scoreboard objectives add chess.click minecraft.used:minecraft.carrot_on_a_stick "클릭 감지"
+scoreboard objectives add chess.placing_cost dummy "배치 비용"
+scoreboard objectives add chess.sneak minecraft.custom:minecraft.sneak_time "스니크 감지"
 
 # 상수 설정
 scoreboard players set #2 chess.const 2

@@ -5,10 +5,10 @@ tellraw @s ["",{"text":"========== 체스택 메뉴 ==========","color":"gold","
 tellraw @s ""
 
 # 기물 배치
-tellraw @s ["",{"text":"[기물 배치]","color":"green","clickEvent":{"action":"run_command","value":"/function chess:piece/place/menu"},"hoverEvent":{"action":"show_text","value":"포켓에서 기물을 배치합니다"}}]
+tellraw @s ["",{"text":"[기물 배치]","color":"green","click_event":{"action":"run_command","command":"/function chess:piece/place/menu"},"hover_event":{"action":"show_text","value":{"text":"포켓에서 기물을 배치합니다"}}}]
 
 # 턴 종료
-tellraw @s ["",{"text":"[턴 종료]","color":"yellow","clickEvent":{"action":"run_command","value":"/function chess:turn/end"},"hoverEvent":{"action":"show_text","value":"현재 턴을 종료합니다"}}]
+tellraw @s ["",{"text":"[턴 종료]","color":"yellow","click_event":{"action":"run_command","command":"/function chess:turn/end"},"hover_event":{"action":"show_text","value":{"text":"현재 턴을 종료합니다"}}}]
 
 # 게임 상태
 tellraw @s ""
