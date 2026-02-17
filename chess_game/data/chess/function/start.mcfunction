@@ -23,8 +23,8 @@ function chess:turn/start
 scoreboard players set #game_state chess.game 1
 
 # 플레이어에게 당근 낚싯대 제공 (클릭용)
-give @a[tag=chess.white] minecraft:carrot_on_a_stick[custom_name='{"text":"체스 클릭 도구","color":"gold","italic":false}',lore=['{"text":"우클릭하여 칸을 선택하세요","color":"gray","italic":false}']]
-give @a[tag=chess.black] minecraft:carrot_on_a_stick[custom_name='{"text":"체스 클릭 도구","color":"gold","italic":false}',lore=['{"text":"우클릭하여 칸을 선택하세요","color":"gray","italic":false}']]
+give @a[tag=chess.white] minecraft:carrot_on_a_stick[custom_name={"text":"체스 클릭 도구","color":"gold","italic":false},lore=[{"text":"우클릭하여 칸을 선택하세요","color":"gray","italic":false}]]
+give @a[tag=chess.black] minecraft:carrot_on_a_stick[custom_name={"text":"체스 클릭 도구","color":"gold","italic":false},lore=[{"text":"우클릭하여 칸을 선택하세요","color":"gray","italic":false}]]
 
 tellraw @a ["",{"text":"========================================","color":"gold"}]
 tellraw @a ["",{"text":"    체스택 게임 시작!","color":"aqua","bold":true}]

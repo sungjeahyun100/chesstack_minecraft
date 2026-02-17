@@ -2,6 +2,8 @@
 # 플레이어가 선택한 칸에 기물을 배치합니다
 # 실행자: 클릭된 칸의 chess_square 마커
 
+say place_piece activated
+
 # 배치할 수 있는지 검증
 # 1. 해당 칸이 비어있는지
 execute unless data entity @s {data:{piece:"none"}} run tellraw @p[tag=placing] ["",{"text":"이미 기물이 있는 칸입니다!","color":"red"}]

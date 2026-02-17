@@ -13,6 +13,10 @@ execute if entity @p[tag=placing,tag=chess.white] run data modify entity @s data
 execute if entity @p[tag=placing,tag=chess.black] run data modify entity @s data.piece set value "knight"
 execute if entity @p[tag=placing,tag=chess.black] run data modify entity @s data.color set value "black"
 
+# 새로 생성된 기물을 즉시 시각화
+execute as @e[tag=new_piece] run function chess:piece/visualize
+tag @e[tag=new_piece] remove new_piece
+
 # 파티클 효과
 particle minecraft:happy_villager ~1 ~0.5 ~1 0.3 0.3 0.3 0 10 normal
 playsound minecraft:entity.experience_orb.pickup master @a ~ ~ ~ 1 1.2
